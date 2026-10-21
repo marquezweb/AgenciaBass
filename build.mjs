@@ -1,0 +1,23 @@
+import { readFile, mkdir, cp, writeFile, stat, rm } from 'node:fs/promises';
+import { resolve, join, dirname, relative } from 'node:path';
+import { execFileSync } from 'node:child_process';
+const root = resolve(import.meta.dirname);
+const html = await readFile(join(root, 'index.html'), 'utf8');
+const css = await readFile(join(root, 'style.css'), 'utf8');
+const js = await readFile(join(root, 'script.js'), 'utf8');
+const references = new Set([...html.matchAll(/(?:src|href|poster|data-src)="(assets\/[^"#?]+)"/g)].map(match => match[1]));
+for (const match of css.matchAll(/url\(['"]?(assets\/[^'")]+)['"]?\)/g)) references.add(match[1]);
+const media = JSON.parse(await readFile(join(root,'assets/media-manifest.json'),'utf8'));
+references.add('assets/media-manifest.json');
+for (const asset of media.assets) references.add(asset.file);
+for (const reference of references) if (!(await stat(join(root, reference))).isFile()) throw new Error(`Missing asset: ${reference}`);
+const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+if (new Set(ids).size !== ids.length) throw new Error('Duplicate HTML IDs');
+for (const match of html.matchAll(/href="#([^"]+)"/g)) if (!ids.includes(match[1])) throw new Error(`Broken anchor: ${match[1]}`);
+for (const file of ['script.js','motion.js','server.mjs']) execFileSync(process.execPath, ['--check', join(root, file)]);
+if (!js.includes('showModal')) throw new Error('Missing reel player');
+const dist = resolve(root,'dist'); if (relative(root,dist) !== 'dist') throw new Error('Unsafe build directory'); await rm(dist,{recursive:true,force:true}); await mkdir(join(dist,'assets'), { recursive:true });
+for (const file of ['index.html','style.css','script.js','motion.js']) await cp(join(root,file),join(dist,file));
+for (const reference of references) { await mkdir(dirname(join(dist,reference)),{recursive:true}); await cp(join(root,reference),join(dist,reference)); }
+await writeFile(join(dist,'build-info.json'),JSON.stringify({built:new Date().toISOString(),assets:references.size}));
+console.log(`Build OK: ${references.size} local assets, valid JS, unique IDs and working section anchors. Output: ${dist}`);

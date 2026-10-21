@@ -1,0 +1,97 @@
+{
+  "description": "Archivos web seleccionados; fuentes y decisiones en content/inventory.md",
+  "assets": [
+    {
+      "file": "assets/photography/desfile-bass-hero.webp",
+      "bytes": 132106,
+      "original_url": "https://www.instagram.com/agencia.bass/p/Dd2WWMLlGZA/",
+      "publisher": "agencia.bass",
+      "kind": "photography"
+    },
+    {
+      "file": "assets/graphics/estrategia-influencers.webp",
+      "bytes": 231874,
+      "original_url": "https://www.instagram.com/agencia.bass/p/DblcGVOlMLy/",
+      "publisher": "agencia.bass",
+      "kind": "graphics",
+      "edit_note": "Se eliminó únicamente la flecha blanca circular por pedido del usuario. Edición generativa localizada en 46x46 px; resto de píxeles conservado sin cambios, exportación WebP sin pérdida. Original respaldado."
+    },
+    {
+      "file": "assets/graphics/fashion-night-convocatoria.webp",
+      "bytes": 39502,
+      "original_url": "https://www.instagram.com/agencia.bass/p/DdWrYCPz9Av/",
+      "publisher": "agencia.bass",
+      "kind": "graphics"
+    },
+    {
+      "file": "assets/graphics/fashion-night-sponsors.webp",
+      "bytes": 34760,
+      "original_url": "https://www.instagram.com/agencia.bass/p/DdmoQhwziPV/",
+      "publisher": "agencia.bass",
+      "kind": "graphics"
+    },
+    {
+      "file": "assets/graphics/influencers-bass.webp",
+      "bytes": 54954,
+      "original_url": "https://www.instagram.com/agencia.bass/p/DbeRuhtzBPw/",
+      "publisher": "agencia.bass",
+      "kind": "graphics"
+    },
+    {
+      "file": "assets/graphics/servicios-bass.webp",
+      "bytes": 69394,
+      "original_url": "https://www.instagram.com/agencia.bass/p/DcLp40rTa3E/",
+      "publisher": "agencia.bass",
+      "kind": "graphics"
+    },
+    {
+      "file": "assets/video/activacion-qr.mp4",
+      "bytes": 2013071,
+      "original_url": "https://www.instagram.com/agencia.bass/p/DdsL5wETYeI/",
+      "publisher": "agencia.bass",
+      "kind": "video"
+    },
+    {
+      "file": "assets/video/entrevistas-primavera.mp4",
+      "bytes": 10238169,
+      "original_url": "https://www.instagram.com/agencia.bass/p/DdcMUgUTUqQ/",
+      "publisher": "agencia.bass",
+      "kind": "video"
+    },
+    {
+      "file": "assets/video/fashion-night-solidaria.mp4",
+      "bytes": 5076071,
+      "original_url": "https://www.instagram.com/agencia.bass/p/Ddbu_jOzkEw/",
+      "publisher": "agencia.bass",
+      "kind": "video"
+    },
+    {
+      "file": "assets/posters/activacion-qr.webp",
+      "bytes": 13512,
+      "original_url": "https://www.instagram.com/agencia.bass/p/DdsL5wETYeI/",
+      "publisher": "agencia.bass",
+      "kind": "posters"
+    },
+    {
+      "file": "assets/posters/fashion-night-convocatoria.webp",
+      "bytes": 16852,
+      "original_url": "https://www.instagram.com/agencia.bass/p/Ddbu_jOzkEw/",
+      "publisher": "agencia.bass",
+      "kind": "posters"
+    },
+    {
+      "file": "assets/video/bass-entrevistas-adelanto.mp4",
+      "bytes": 1388404,
+      "kind": "video-preview",
+      "publisher": "agencia.bass",
+      "original_url": "https://www.instagram.com/agencia.bass/reel/DdcMUgUTUqQ/"
+    },
+    {
+      "file": "assets/posters/entrevistas-primavera.webp",
+      "bytes": 24378,
+      "kind": "poster",
+      "publisher": "agencia.bass",
+      "original_url": "https://www.instagram.com/agencia.bass/reel/DdcMUgUTUqQ/"
+    }
+  ]
+}
