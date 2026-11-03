@@ -2,33 +2,12 @@
   "description": "Archivos web seleccionados; fuentes y decisiones en content/inventory.md",
   "assets": [
     {
-      "file": "assets/photography/desfile-bass-hero.webp",
-      "bytes": 132106,
-      "original_url": "https://www.instagram.com/agencia.bass/p/Dd2WWMLlGZA/",
-      "publisher": "agencia.bass",
-      "kind": "photography"
-    },
-    {
       "file": "assets/graphics/estrategia-influencers.webp",
       "bytes": 231874,
       "original_url": "https://www.instagram.com/agencia.bass/p/DblcGVOlMLy/",
       "publisher": "agencia.bass",
       "kind": "graphics",
       "edit_note": "Se eliminó únicamente la flecha blanca circular por pedido del usuario. Edición generativa localizada en 46x46 px; resto de píxeles conservado sin cambios, exportación WebP sin pérdida. Original respaldado."
-    },
-    {
-      "file": "assets/graphics/fashion-night-convocatoria.webp",
-      "bytes": 39502,
-      "original_url": "https://www.instagram.com/agencia.bass/p/DdWrYCPz9Av/",
-      "publisher": "agencia.bass",
-      "kind": "graphics"
-    },
-    {
-      "file": "assets/graphics/fashion-night-sponsors.webp",
-      "bytes": 34760,
-      "original_url": "https://www.instagram.com/agencia.bass/p/DdmoQhwziPV/",
-      "publisher": "agencia.bass",
-      "kind": "graphics"
     },
     {
       "file": "assets/graphics/influencers-bass.webp",
@@ -59,23 +38,9 @@
       "kind": "video"
     },
     {
-      "file": "assets/video/fashion-night-solidaria.mp4",
-      "bytes": 5076071,
-      "original_url": "https://www.instagram.com/agencia.bass/p/Ddbu_jOzkEw/",
-      "publisher": "agencia.bass",
-      "kind": "video"
-    },
-    {
       "file": "assets/posters/activacion-qr.webp",
       "bytes": 13512,
       "original_url": "https://www.instagram.com/agencia.bass/p/DdsL5wETYeI/",
-      "publisher": "agencia.bass",
-      "kind": "posters"
-    },
-    {
-      "file": "assets/posters/fashion-night-convocatoria.webp",
-      "bytes": 16852,
-      "original_url": "https://www.instagram.com/agencia.bass/p/Ddbu_jOzkEw/",
       "publisher": "agencia.bass",
       "kind": "posters"
     },

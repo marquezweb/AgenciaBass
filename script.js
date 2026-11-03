@@ -5,7 +5,7 @@ const previews = [...document.querySelectorAll('.reel-preview')];
 const dialog = document.querySelector('.reel-dialog');
 const player = dialog.querySelector('video');
 const status = dialog.querySelector('.player-status');
-const reelSources = { cobertura: 'assets/video/entrevistas-primavera.mp4', moda: 'assets/video/activacion-qr.mp4', convocatoria: 'assets/video/fashion-night-solidaria.mp4' };
+const reelSources = { cobertura: 'assets/video/entrevistas-primavera.mp4', moda: 'assets/video/activacion-qr.mp4' };
 let lastTrigger;
 let visiblePreviews = new Set();
 
@@ -87,6 +87,8 @@ const serviceFormats = {
   branding: ['Aa.', 'Forma. Color. Identidad.', 'DISEÑO & BRANDING'],
   redes: ['↗', 'Una dirección para tu marca.', 'ESTRATEGIA & REDES'],
   ugc: ['REC', 'Personas. Historias. Contenido.', 'CREADORAS / REELS / UGC'],
+  filmmaker: ['REC.', 'Una mirada profesional para tu marca.', 'CONTENIDO PROFESIONAL / FILMMAKER'],
+  web: ['</>', 'Tu identidad, también en la web.', 'DISEÑO WEB / RESPONSIVE'],
   eventos: ['LIVE', 'La experiencia, en vivo.', 'FOTO / VIDEO / EDICIÓN EXPRESS'],
   staff: ['BTL', 'Tu marca, en el encuentro.', 'PROMOTORAS / ACREDITACIONES / BTL']
 };
@@ -151,8 +153,7 @@ matchMedia('(min-width: 651px)').addEventListener('change', () => setMenu(false)
   const buttons = [...hero.querySelectorAll('.channel-button')];
   const channels = [
     { source: 'assets/video/bass-entrevistas-adelanto.mp4', poster: 'assets/posters/entrevistas-primavera.webp', reel: 'cobertura', url: 'https://www.instagram.com/agencia.bass/reel/DdcMUgUTUqQ/', label: 'PERSONAS', caption: 'PERSONAS REALES.\nHISTORIAS EN PRIMERA PERSONA.', title: 'Ver entrevistas de BASS con sonido' },
-    { source: 'assets/video/activacion-qr.mp4', poster: 'assets/posters/activacion-qr.webp', reel: 'moda', url: 'https://www.instagram.com/agencia.bass/reel/DdsL5wETYeI/', label: 'EN LA CALLE', caption: 'UNA INVITACIÓN FUERA DEL FEED.\nACTIVACIÓN QR / FASHION NIGHT.', title: 'Ver activación QR de BASS con sonido' },
-    { source: 'assets/video/fashion-night-solidaria.mp4', poster: 'assets/posters/fashion-night-convocatoria.webp', reel: 'convocatoria', url: 'https://www.instagram.com/agencia.bass/reel/Ddbu_jOzkEw/', label: 'EN VIVO', caption: 'SER PARTE TAMBIÉN ES AYUDAR.\nCONVOCATORIA / FASHION NIGHT.', title: 'Ver convocatoria de Fashion Night con sonido' }
+    { source: 'assets/video/activacion-qr.mp4', poster: 'assets/posters/activacion-qr.webp', reel: 'moda', url: 'https://www.instagram.com/agencia.bass/reel/DdsL5wETYeI/', label: 'EN LA CALLE', caption: 'UNA INVITACIÓN FUERA DEL FEED.\nACTIVACIÓN QR / CONTENIDO EN LA CALLE.', title: 'Ver activación QR de BASS con sonido' }
   ];
   let selected = 0;
   let switchTimer;
@@ -271,9 +272,6 @@ matchMedia('(min-width: 651px)').addEventListener('change', () => setMenu(false)
  const viewer=document.querySelector('.image-dialog');
  if(!viewer)return;
  const metadata={
-  'desfile-bass-hero.webp':['EN VIVO / FOTOGRAFÍA','El desfile, desde adentro.','Una mirada a las personas y al encuentro. Fotografía publicada en el perfil de BASS.'],
-  'fashion-night-convocatoria.webp':['FASHION NIGHT / DISEÑO','Una invitación con identidad.','Pieza de convocatoria de Fashion Night III · We Colors en Ganesha.'],
-  'fashion-night-sponsors.webp':['FASHION NIGHT / DISEÑO','Una campaña, distintos mensajes.','Pieza de comunicación de sponsors de Fashion Night III publicada por BASS.'],
   'estrategia-influencers.webp':['ESTRATEGIA / CARRUSEL','Detrás de una campaña.','Portada del carrusel de BASS sobre el trabajo con influencers. El contenido completo está en la publicación original.'],
   'influencers-bass.webp':['BASS / COMUNICACIÓN PROPIA','Personas que conectan marcas.','Pieza de comunicación de BASS sobre campañas con influencers en Córdoba.'],
   'servicios-bass.webp':['BASS / DISEÑO PARA REDES','Más que un post.','Pieza de BASS sobre diseño gráfico, manejo de redes y creación de contenido.']

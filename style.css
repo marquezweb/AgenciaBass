@@ -745,3 +745,68 @@ body{overflow-x:clip}
 @media(max-width:650px){.manifest-ready .manifest-first,.manifest-ready .manifest-second{translate:0 20px}.manifest-visible .manifest-first,.manifest-visible .manifest-second{translate:0 0}.manifest-visible .statement-orbit{opacity:.5}}
 @media(prefers-reduced-motion:reduce){.manifest-blue-field{clip-path:none;transition:none}.manifest-ready .manifest-first,.manifest-ready .manifest-second,.manifest-ready .section-kicker,.manifest-ready .statement-bottom{opacity:1;translate:0 0;clip-path:none;transition:none}.manifest-ready .statement-orbit{opacity:.5;transition:none}}
 @media print{.manifest-blue-field{clip-path:none}.manifest-ready .manifest-first,.manifest-ready .manifest-second,.manifest-ready .section-kicker,.manifest-ready .statement-bottom{opacity:1;translate:0 0;clip-path:none}}
+
+/* Client feedback: visible contact and service-first hierarchy. */
+.site-header .header-contact{background:#25d366;color:#072b16;border-color:#25d366;align-items:center;gap:9px;font-weight:700;min-height:44px;box-shadow:0 5px 20px #25d36622}
+.header-contact>svg{width:21px;height:21px;flex:none}
+.site-header .header-contact:hover{background:#4be48a;color:#072b16;border-color:#4be48a}
+.whatsapp-float{position:fixed;right:25px;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:35;display:flex;align-items:center;gap:10px;min-height:52px;padding:12px 18px;border-radius:40px;background:#25d366;color:#072b16;font-size:14px;font-weight:700;box-shadow:0 8px 30px #0003;border:1px solid #ffffff55;transition:transform .3s,background .3s,box-shadow .3s}
+.whatsapp-float>svg{width:25px;height:25px;flex:none}
+.whatsapp-float-arrow{font-size:20px;transition:translate .3s}
+.whatsapp-float:hover{background:#4be48a;transform:translateY(-3px);box-shadow:0 12px 32px #0004}
+.whatsapp-float:hover .whatsapp-float-arrow{translate:2px -2px}
+.player-open .whatsapp-float{visibility:hidden;pointer-events:none}
+.frequency-controls{grid-template-columns:1.45fr 1fr 1fr}
+.service-board[data-active-sample="filmmaker"] .drawing-filmmaker,.service-board[data-active-sample="web"] .drawing-web{opacity:1}
+.service-list summary h3{min-width:0}
+.premium-work .portfolio-chapter>.portfolio-divider{margin-top:0}
+.premium-work .portfolio-chapter .secondary-grid{margin-top:38px}
+.premium-footer{padding-bottom:75px}
+@media(max-width:650px){.site-header .header-contact{padding:10px 13px;font-size:12px;gap:6px}.header-contact>svg{width:19px;height:19px}.header-contact>span{display:none}.frequency-controls{grid-template-columns:repeat(2,minmax(0,1fr))}.whatsapp-float{right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));min-height:48px;padding:11px 15px;font-size:13px}.whatsapp-float>svg{width:23px;height:23px}.whatsapp-float-arrow{display:none}.premium-work .portfolio-chapter .secondary-grid{margin-top:28px}.service-list summary h3{font-size:25px}.premium-footer{padding-bottom:80px}}
+@media(prefers-reduced-motion:reduce){.whatsapp-float,.whatsapp-float-arrow{transition:none}.whatsapp-float:hover{transform:none}.whatsapp-float:hover .whatsapp-float-arrow{translate:0 0}}
+@media print{.whatsapp-float{display:none}}
+
+/* WhatsApp contact: compact hierarchy, a clear icon and a deliberate hover. */
+.whatsapp-float{gap:11px;min-height:62px;padding:10px 12px 10px 11px;border-radius:22px;background:linear-gradient(135deg,#39e481,#25d366 75%);border:1px solid #96f6bd80;box-shadow:0 10px 30px #0003,0 2px 7px #0002,inset 0 1px 0 #ffffff55;color:#07371c;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,filter .35s}
+.whatsapp-float>svg{width:38px;height:38px;padding:7px;border-radius:50%;background:#f3fff5;box-shadow:0 2px 6px #075b2418;color:#087c39}
+.whatsapp-float-copy{display:flex;flex-direction:column;gap:2px;min-width:78px;line-height:1.15}
+.whatsapp-float-copy>small{font-size:10px;font-weight:500;letter-spacing:.1px;opacity:.85}
+.whatsapp-float-copy>strong{font-size:15px;font-weight:800;letter-spacing:-.35px}
+.whatsapp-float .whatsapp-float-arrow{display:grid;place-items:center;width:30px;height:30px;flex:none;border-radius:50%;background:#075c2212;font-size:20px;line-height:1;transition:transform .35s,background .35s;translate:0 0}
+@media(hover:hover) and (pointer:fine){.whatsapp-float:hover{background:linear-gradient(135deg,#4aed91,#2edc72 75%);transform:translateY(-4px);box-shadow:0 15px 35px #0004,0 3px 9px #0002,inset 0 1px 0 #ffffff66}.whatsapp-float:hover .whatsapp-float-arrow{translate:0 0;transform:rotate(8deg);background:#075c2220}}
+.whatsapp-float:focus-visible{outline:3px solid var(--blue);outline-offset:5px}
+.whatsapp-float:active{transform:translateY(-1px) scale(.98)}
+@media(max-width:650px){.whatsapp-float{min-height:58px;padding:9px 10px;border-radius:20px;gap:9px;max-width:calc(100vw - 32px)}.whatsapp-float>svg{width:35px;height:35px;padding:6px}.whatsapp-float-copy{min-width:70px}.whatsapp-float-copy>strong{font-size:14px}.whatsapp-float-copy>small{font-size:10px}.whatsapp-float .whatsapp-float-arrow{display:grid;width:27px;height:27px;font-size:18px}}
+@media(prefers-reduced-motion:reduce){.whatsapp-float,.whatsapp-float .whatsapp-float-arrow{transition:none}.whatsapp-float:hover,.whatsapp-float:active,.whatsapp-float:hover .whatsapp-float-arrow{transform:none}}
+
+/* WhatsApp brand silhouette: white glyph directly on green, as in the reference. */
+.site-header .header-contact>svg{width:23px;height:23px;fill:#fff;color:#fff;flex:none}
+.whatsapp-float>svg{width:31px;height:31px;padding:0;border-radius:0;background:none;box-shadow:none;fill:#fff;color:#fff;flex:none}
+@media(max-width:650px){.site-header .header-contact>svg{width:21px;height:21px}.whatsapp-float>svg{width:29px;height:29px}}
+
+/* Results transcribed from the BASS portfolio supplied by the client. */
+.results{padding-top:0;padding-bottom:100px}
+.results>.section-kicker{border-top:1px solid var(--line);padding-top:22px}
+.results-heading{margin:34px 0}
+.results-heading h2{font-size:clamp(34px,4.6vw,66px);line-height:1.04;letter-spacing:-.06em;font-weight:500}
+.results-case{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;background:var(--ink);color:var(--paper);padding:45px 5%;position:relative;overflow:hidden}
+.results-case-copy .eyebrow{color:#a7afff;font-size:8px}
+.results-case-copy h3{font-size:clamp(30px,3.6vw,51px);line-height:1.02;letter-spacing:-.055em;font-weight:500;margin:23px 0 17px}
+.results-case-copy p{font-size:13px;line-height:1.75;max-width:350px;color:#d1cebf}
+.results-case-format{display:block;margin-top:25px;font-size:7px;letter-spacing:.8px;color:#aaa79b}
+.results-case-number{border-left:1px solid #ffffff25;padding-left:15%;display:flex;flex-direction:column;gap:12px}
+.results-case-number>strong{font-size:clamp(70px,10vw,145px);font-weight:500;letter-spacing:-.085em;line-height:1;color:var(--paper)}
+.results-case-number>strong>span{color:#a7afff;font-size:.57em;letter-spacing:-.06em}
+.results-case-number>span{font-size:9px;letter-spacing:1.2px;color:#c2bfb3}
+.results-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:20px;border:1px solid var(--line)}
+.result-card{padding:30px 25px 27px;position:relative;transition:background .4s,border-color .4s}
+.result-card+.result-card{border-left:1px solid var(--line)}
+.result-category{font-size:8px;letter-spacing:.8px;color:#5d5e57;display:block}
+.result-card>strong{display:block;font-size:clamp(44px,5vw,72px);letter-spacing:-.07em;line-height:1.15;font-weight:500;margin:25px 0 14px}
+.result-card>strong>span{font-size:.6em;color:var(--blue);margin-left:2px}
+.result-card h3{font-size:16px;font-weight:500;letter-spacing:-.4px}
+.result-card p{font-size:12px;color:var(--muted);margin-top:7px}
+.contact-quote-time{display:block;font-size:11px;line-height:1.65;max-width:240px;margin-top:12px;color:#b5bdff}
+@media(hover:hover) and (pointer:fine){.result-card:hover{background:#e8e5db}}
+@media(max-width:650px){.results{padding-bottom:55px}.results>.section-kicker{font-size:7px;align-items:start}.results>.section-kicker>span:last-child{font-size:6px;max-width:100px;text-align:right;line-height:1.7}.results-heading{margin:27px 0}.results-heading h2{font-size:10.5vw}.results-case{grid-template-columns:1fr;gap:30px;padding:30px 24px}.results-case-copy h3{font-size:37px}.results-case-copy p{font-size:12px}.results-case-number{border-left:0;border-top:1px solid #ffffff25;padding:25px 0 0}.results-case-number>strong{font-size:87px}.results-case-number>span{font-size:8px}.results-grid{grid-template-columns:1fr;margin-top:16px}.result-card{padding:23px;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;align-items:center}.result-card+.result-card{border-left:0;border-top:1px solid var(--line)}.result-category{grid-column:1/-1;font-size:7px}.result-card>strong{grid-column:1;grid-row:2/4;font-size:49px;margin:7px 0 0}.result-card h3{grid-column:2;align-self:end;font-size:14px}.result-card p{grid-column:2;align-self:start;font-size:11px;margin:0}.contact-quote-time{max-width:230px}}
+@media(prefers-reduced-motion:reduce){.result-card{transition:none}}

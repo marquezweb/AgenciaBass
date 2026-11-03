@@ -20,6 +20,6 @@ Hero con luz y ondas que responden al cursor; entradas por bloques, afiches con 
 
 ## Validación
 
-Build comprobado. Comprobaciones de lógica de contadores y selector de servicios; archivos locales y carga parcial de los cuatro MP4 verificados por HTTP. La última revisión visual de escritorio y móvil está pendiente debido a una restricción de la herramienta de navegador utilizada.
+Build comprobado. Comprobaciones de lógica de contadores y selector de servicios; archivos locales y carga parcial de los MP4 utilizados verificados por HTTP. La última revisión visual de escritorio y móvil está pendiente debido a una restricción de la herramienta de navegador utilizada.
 
 No contiene credenciales ni requiere variables de entorno. Antes de publicar con dominio definitivo, usar una URL absoluta para `og:image`.
