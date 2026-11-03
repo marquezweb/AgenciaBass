@@ -143,7 +143,7 @@ document.addEventListener('keydown', event => { if (event.key === 'Escape') setM
 document.addEventListener('click', event => { if (!header.contains(event.target)) setMenu(false); });
 matchMedia('(min-width: 651px)').addEventListener('change', () => setMenu(false));
 
-// The frequency selector previews three existing BASS pieces. Only a selected
+// The frequency selector previews the existing BASS pieces. Only a selected
 // channel gets loaded; the existing observer still owns autoplay and pause.
 (() => {
   const hero = document.querySelector('.premium-hero');
@@ -171,7 +171,15 @@ matchMedia('(min-width: 651px)').addEventListener('change', () => setMenu(false)
     const channel = channels[index];
     clearTimeout(switchTimer);
     clearTimeout(revealTimer);
-    buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(index === i)));
+    buttons.forEach((button, i) => {
+      button.setAttribute('aria-pressed', String(index === i));
+      button.querySelector('.channel-action').textContent = index === i ? 'Viendo ahora' : 'Ver video';
+    });
+    const previewBounds = mediaLink.getBoundingClientRect();
+    const headerHeight = document.querySelector('.site-header')?.getBoundingClientRect().height || 0;
+    if (previewBounds.top < headerHeight || previewBounds.bottom > window.innerHeight) {
+      mediaLink.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'center' });
+    }
     stage.dataset.channel = String(index);
     stage.classList.add('is-tuning');
     signalPulse = 1;
@@ -325,7 +333,14 @@ matchMedia('(min-width: 651px)').addEventListener('change', () => setMenu(false)
  items.forEach((item,i)=>{
   item.link.classList.add('gallery-source');
   item.link.setAttribute('aria-haspopup','dialog');
-  const hint=document.createElement('span');hint.className='image-open-label';hint.textContent='AMPLIAR +';hint.setAttribute('aria-hidden','true');item.link.append(hint);
+  item.link.setAttribute('aria-controls','portfolio-gallery');
+  item.link.setAttribute('aria-label','Ver pieza: '+item.title);
+  if(!item.link.querySelector('.piece-cta')){
+   const hint=document.createElement('span');hint.className='piece-cta portfolio-piece-cta';
+   hint.append(document.createTextNode('Ver pieza '));
+   const icon=document.createElement('span');icon.textContent='↗';icon.setAttribute('aria-hidden','true');
+   hint.append(icon);item.link.append(hint);
+  }
   const arrow=item.link.querySelector('.circle-arrow');if(arrow)arrow.textContent='+';
   item.link.addEventListener('click',event=>{
    if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;

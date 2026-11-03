@@ -170,7 +170,7 @@ motionQuery.addEventListener('change',event=>{
   });
 });
 // Real pointer feedback also works on laptops whose primary input is touch.
-const bassHoverSurfaces = document.querySelectorAll('.channel-button, .frequency-prompt, .wall-print, .strategy-project, .communication-piece, .process-score article');
+const bassHoverSurfaces = document.querySelectorAll('.channel-button, .wall-print, .strategy-project, .communication-piece, .process-score article');
 bassHoverSurfaces.forEach(surface => {
   surface.classList.add('bass-hover');
   let hoverFrame = 0;
@@ -196,8 +196,8 @@ bassHoverSurfaces.forEach(surface => {
       const y = Math.max(0,Math.min(1,(hoverPoint.y-rect.top)/rect.height));
       surface.style.setProperty('--hover-x',`${x*100}%`);
       surface.style.setProperty('--hover-y',`${y*100}%`);
-      surface.style.setProperty('--hover-rx',`${(.5-y)*4}deg`);
-      surface.style.setProperty('--hover-ry',`${(x-.5)*5}deg`);
+      surface.style.setProperty('--hover-rx',`${(.5-y)*2}deg`);
+      surface.style.setProperty('--hover-ry',`${(x-.5)*2.6}deg`);
     });
   });
   surface.addEventListener('pointerleave',resetHover);
@@ -355,18 +355,20 @@ bassHoverSurfaces.forEach(surface => {
       if(motionQuery.matches){settle(poster);return;}
       const index=posters.indexOf(poster);
       const direction=index%2===0?-1:1;
-      const delay=200+(index%2)*180;
+      const grouped=Boolean(poster.closest('[data-section-entry]'));
+      const delay=(index%2)*120;
       const mobile=matchMedia('(max-width:650px)').matches;
-      const distance=mobile?24:52;
       const pose=poster.animate([
-        {transform:`perspective(1100px) translate3d(${direction*distance}px,${mobile?30:65}px,45px) rotateX(12deg) rotateZ(${direction*7}deg) scale(1.06)`},
-        {transform:'perspective(1100px) translate3d(0,0,0) rotateX(0deg) rotateZ(0deg) scale(1)'}
-      ],{duration:2100,delay,easing:'cubic-bezier(.22,.61,.36,1)',fill:'backwards',composite:'add'});
-      const fade=poster.animate([{opacity:0},{opacity:1}],
-        {duration:1450,delay,easing:'ease-out',fill:'backwards'});
-      running.set(poster,[pose,fade]);
+        {transform:'translate3d(0,'+(mobile?12:22)+'px,0) rotateZ('+(direction*(mobile?1.5:3))+'deg)'},
+        {transform:'translate3d(0,0,0) rotateZ(0deg)'}
+      ],{duration:1700,delay,easing:'cubic-bezier(.22,.61,.36,1)',fill:'backwards',composite:'add'});
+      const animations=[pose];
+      // The whole section already fades in; avoid fading the same piece twice.
+      if(!grouped)animations.push(poster.animate([{opacity:0},{opacity:1}],
+        {duration:1200,delay,easing:'ease-out',fill:'backwards'}));
+      running.set(poster,animations);
       poster.classList.remove('poster-waiting');
-      Promise.all([pose.finished,fade.finished]).then(()=>running.delete(poster)).catch(()=>{});
+      Promise.all(animations.map(animation=>animation.finished)).then(()=>running.delete(poster)).catch(()=>{});
     });
   },{threshold:.12,rootMargin:'0px 0px -25px 0px'});
   posters.forEach(poster=>{
