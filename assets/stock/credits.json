@@ -1,0 +1,56 @@
+[
+  {
+    "file": "assets/stock/design.webp",
+    "source": "https://unsplash.com/photos/Mo08jadTWYc",
+    "author": "Mahmudul Hasan",
+    "license": "Unsplash License",
+    "license_url": "https://unsplash.com/license",
+    "purpose": "Generic illustrative service photography, not BASS staff or client work",
+    "bytes": 77050
+  },
+  {
+    "file": "assets/stock/web.webp",
+    "source": "https://unsplash.com/photos/rA5MU4pXnWE",
+    "author": "Tracy Adams",
+    "license": "Unsplash License",
+    "license_url": "https://unsplash.com/license",
+    "purpose": "Generic illustrative service photography, not BASS staff or client work",
+    "bytes": 108932
+  },
+  {
+    "file": "assets/stock/production.webp",
+    "source": "https://unsplash.com/photos/2Y_13p9bl00",
+    "author": "Rendy Novantino",
+    "license": "Unsplash License",
+    "license_url": "https://unsplash.com/license",
+    "purpose": "Generic illustrative service photography, not BASS staff or client work",
+    "bytes": 50928
+  },
+  {
+    "file": "assets/stock/content.webp",
+    "source": "https://unsplash.com/photos/Gz4AEq4QN5g",
+    "author": "dlxmedia.hu",
+    "license": "Unsplash License",
+    "license_url": "https://unsplash.com/license",
+    "purpose": "Generic illustrative service photography, not BASS staff or client work",
+    "bytes": 35512
+  },
+  {
+    "file": "assets/stock/strategy.webp",
+    "source": "https://unsplash.com/photos/PSksbOVDhWk",
+    "author": "Vitaly Gariev",
+    "license": "Unsplash License",
+    "license_url": "https://unsplash.com/license",
+    "purpose": "Generic illustrative service photography, not BASS staff or client work",
+    "bytes": 110652
+  },
+  {
+    "file": "assets/stock/cover.webp",
+    "source": "https://unsplash.com/photos/yluvXzbyqAU",
+    "author": "Vitaly Gariev",
+    "license": "Unsplash License",
+    "license_url": "https://unsplash.com/license",
+    "purpose": "Generic illustrative service photography, not BASS staff or client work",
+    "bytes": 104390
+  }
+]

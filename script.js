@@ -26,27 +26,6 @@ const videoObserver = new IntersectionObserver(entries => {
   syncPreviews();
 }, { threshold: .25 });
 previews.forEach(video => videoObserver.observe(video));
-const previewToggle = document.querySelector('.preview-toggle');
-const heroPreview = document.getElementById('hero-preview');
-function updatePreviewToggle() {
-  const paused = heroPreview.paused;
-  previewToggle.textContent = paused ? '▶' : 'Ⅱ';
-  previewToggle.setAttribute('aria-label', paused ? 'Reproducir adelanto' : 'Pausar adelanto');
-}
-previewToggle.hidden = false;
-heroPreview.addEventListener('play', updatePreviewToggle);
-heroPreview.addEventListener('pause', updatePreviewToggle);
-previewToggle.addEventListener('click', () => {
-  if (heroPreview.paused) {
-    heroPreview.dataset.userPaused = 'false';
-    if (!heroPreview.getAttribute('src')) heroPreview.src = heroPreview.dataset.src;
-    heroPreview.play().catch(() => {});
-  } else {
-    heroPreview.dataset.userPaused = 'true';
-    heroPreview.pause();
-  }
-});
-updatePreviewToggle();
 reducedMotion.addEventListener('change', syncPreviews);
 document.addEventListener('visibilitychange', () => {
   syncPreviews();
@@ -83,50 +62,6 @@ dialog.addEventListener('close', () => {
   lastTrigger?.focus({ preventScroll: true });
 });
 
-const serviceFormats = {
-  branding: ['Aa.', 'Forma. Color. Identidad.', 'DISEÑO & BRANDING'],
-  difusion: ['↗', 'Tu mensaje, en circulación.', 'DIFUSIÓN / FLYERS / GOOGLE'],
-  influencers: ['↗', 'Personas que conectan marcas.', 'INFLUENCERS'],
-  ads: ['↗', 'Publicidad para impulsar tu marca.', 'META / GOOGLE ADS'],
-  redes: ['↗', 'Una dirección para tu marca.', 'ESTRATEGIA & REDES'],
-  ugc: ['REC', 'Personas. Historias. Contenido.', 'CREADORAS / REELS / UGC'],
-  filmmaker: ['REC.', 'Una mirada profesional para tu marca.', 'CONTENIDO PROFESIONAL / FILMMAKER'],
-  web: ['</>', 'Tu identidad, también en la web.', 'DISEÑO WEB / RESPONSIVE'],
-  eventos: ['LIVE', 'La experiencia, en vivo.', 'FOTO / VIDEO / EDICIÓN EXPRESS'],
-  staff: ['BTL', 'Tu marca, en el encuentro.', 'PROMOTORAS / ACREDITACIONES / BTL']
-};
-const serviceBoard = document.querySelector('.service-board');
-const hoverPointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-function previewService(detail) {
-  const sample = serviceFormats[detail.dataset.sample];
-  if (!sample || !serviceBoard) return;
-  const [code, format, caption] = sample;
-  clearTimeout(serviceBoard._serviceMotionTimer);
-  if (serviceBoard.dataset.activeSample === detail.dataset.sample) {
-    serviceBoard.classList.remove('is-switching');
-    return;
-  }
-  serviceBoard.classList.add('is-switching');
-  serviceBoard._serviceMotionTimer = setTimeout(() => {
-    document.getElementById('service-code').textContent = code;
-    document.getElementById('service-format').textContent = format;
-    document.getElementById('service-caption').textContent = caption;
-    serviceBoard.dataset.activeSample = detail.dataset.sample;
-    serviceBoard.classList.remove('is-switching');
-  }, 100);
-}
-document.querySelectorAll('.service-list details').forEach(detail => {
-  const summary = detail.querySelector('summary');
-  detail.addEventListener('toggle', () => {
-    if (!detail.open) return;
-    document.querySelectorAll('.service-list details').forEach(other => { if (detail !== other) other.open = false; });
-    previewService(detail);
-  });
-  summary.addEventListener('pointerenter', () => {
-    if (hoverPointer.matches) previewService(detail);
-  });
-  summary.addEventListener('focus', () => previewService(detail));
-});
 document.querySelectorAll('.engagement-options details').forEach(detail => {
   detail.addEventListener('toggle', () => {
     if (detail.open) document.querySelectorAll('.engagement-options details').forEach(other => { if (other !== detail) other.open = false; });
@@ -146,73 +81,7 @@ document.addEventListener('keydown', event => { if (event.key === 'Escape') setM
 document.addEventListener('click', event => { if (!header.contains(event.target)) setMenu(false); });
 matchMedia('(min-width: 651px)').addEventListener('change', () => setMenu(false));
 
-// The frequency selector previews the existing BASS pieces. Only a selected
-// channel gets loaded; the existing observer still owns autoplay and pause.
-(() => {
-  const hero = document.querySelector('.premium-hero');
-  const stage = hero?.querySelector('.hero-stage');
-  if (!stage) return;
-  const mediaLink = stage.querySelector('.hero-film-link');
-  const buttons = [...hero.querySelectorAll('.channel-button')];
-  const channels = [
-    { source: 'assets/video/bass-entrevistas-adelanto.mp4', poster: 'assets/posters/entrevistas-primavera.webp', reel: 'cobertura', url: 'https://www.instagram.com/agencia.bass/reel/DdcMUgUTUqQ/', label: 'PERSONAS', caption: 'PERSONAS REALES.\nHISTORIAS EN PRIMERA PERSONA.', title: 'Ver entrevistas de BASS con sonido' },
-    { source: 'assets/video/activacion-qr.mp4', poster: 'assets/posters/activacion-qr.webp', reel: 'moda', url: 'https://www.instagram.com/agencia.bass/reel/DdsL5wETYeI/', label: 'EN LA CALLE', caption: 'UNA INVITACIÓN FUERA DEL FEED.\nACTIVACIÓN QR / CONTENIDO EN LA CALLE.', title: 'Ver activación QR de BASS con sonido' }
-  ];
-  let selected = 0;
-  let switchTimer;
-  let revealTimer;
-  function settle() {
-    clearTimeout(revealTimer);
-    stage.classList.remove('is-tuning');
-  }
-  heroPreview.addEventListener('loadeddata', settle);
-  heroPreview.addEventListener('error', settle);
-  function selectChannel(index) {
-    if (index === selected) return;
-    selected = index;
-    const channel = channels[index];
-    clearTimeout(switchTimer);
-    clearTimeout(revealTimer);
-    buttons.forEach((button, i) => {
-      button.setAttribute('aria-pressed', String(index === i));
-      button.querySelector('.channel-action').textContent = index === i ? 'Viendo ahora' : 'Ver video';
-    });
-    const previewBounds = mediaLink.getBoundingClientRect();
-    const headerHeight = document.querySelector('.site-header')?.getBoundingClientRect().height || 0;
-    if (previewBounds.top < headerHeight || previewBounds.bottom > window.innerHeight) {
-      mediaLink.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'center' });
-    }
-    stage.dataset.channel = String(index);
-    stage.classList.add('is-tuning');
-    switchTimer = setTimeout(() => {
-      heroPreview.pause();
-      heroPreview.poster = channel.poster;
-      heroPreview.dataset.src = channel.source;
-      heroPreview.src = channel.source;
-      // Respect a visitor's existing manual pause preference across channels.
-      mediaLink.href = channel.url;
-      mediaLink.dataset.reel = channel.reel;
-      mediaLink.setAttribute('aria-label', channel.title);
-      stage.querySelector('.channel-readout').textContent = `CH. 0${index + 1} / ${channel.label}`;
-      const caption = stage.querySelector('.channel-caption');
-      caption.replaceChildren(...channel.caption.split('\n').flatMap((line, i) => i ? [document.createElement('br'), document.createTextNode(line)] : [document.createTextNode(line)]));
-      hero.querySelector('.channel-announcement').textContent = `Frecuencia ${index + 1}: ${channel.label}. ${channel.caption.replace('\n', ' ')}`;
-      syncPreviews();
-      // A poster stays available if network data is delayed.
-      revealTimer = setTimeout(settle, 900);
-    }, reducedMotion.matches ? 0 : 150);
-  }
-  buttons.forEach((button,index) => {
-    button.addEventListener('click', () => selectChannel(index));
-    button.addEventListener('keydown', event => {
-      const next = event.key === 'ArrowRight' ? (index + 1) % buttons.length : event.key === 'ArrowLeft' ? (index + buttons.length - 1) % buttons.length : null;
-      if (next === null) return;
-      event.preventDefault(); buttons[next].focus(); selectChannel(next);
-    });
-  });
 
-
-})();
 
 // Explore the actual BASS work in context; original publications stay one click away.
 (() => {

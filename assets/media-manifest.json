@@ -57,6 +57,59 @@
       "kind": "poster",
       "publisher": "agencia.bass",
       "original_url": "https://www.instagram.com/agencia.bass/reel/DdcMUgUTUqQ/"
+    },
+    {
+      "file": "assets/stock/design.webp",
+      "bytes": 77050,
+      "original_url": "https://unsplash.com/photos/Mo08jadTWYc",
+      "publisher": "Mahmudul Hasan",
+      "kind": "illustrative-stock",
+      "license": "Unsplash License"
+    },
+    {
+      "file": "assets/stock/web.webp",
+      "bytes": 108932,
+      "original_url": "https://unsplash.com/photos/rA5MU4pXnWE",
+      "publisher": "Tracy Adams",
+      "kind": "illustrative-stock",
+      "license": "Unsplash License"
+    },
+    {
+      "file": "assets/stock/production.webp",
+      "bytes": 50928,
+      "original_url": "https://unsplash.com/photos/2Y_13p9bl00",
+      "publisher": "Rendy Novantino",
+      "kind": "illustrative-stock",
+      "license": "Unsplash License"
+    },
+    {
+      "file": "assets/stock/content.webp",
+      "bytes": 35512,
+      "original_url": "https://unsplash.com/photos/Gz4AEq4QN5g",
+      "publisher": "dlxmedia.hu",
+      "kind": "illustrative-stock",
+      "license": "Unsplash License"
+    },
+    {
+      "file": "assets/stock/strategy.webp",
+      "bytes": 110652,
+      "original_url": "https://unsplash.com/photos/PSksbOVDhWk",
+      "publisher": "Vitaly Gariev",
+      "kind": "illustrative-stock",
+      "license": "Unsplash License"
+    },
+    {
+      "file": "assets/stock/cover.webp",
+      "bytes": 104390,
+      "original_url": "https://unsplash.com/photos/yluvXzbyqAU",
+      "publisher": "Vitaly Gariev",
+      "kind": "illustrative-stock",
+      "license": "Unsplash License"
+    },
+    {
+      "file": "assets/stock/credits.json",
+      "kind": "attribution",
+      "publisher": "Unsplash contributors"
     }
   ]
 }
