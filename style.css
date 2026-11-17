@@ -1156,3 +1156,35 @@ body{overflow-x:clip}
  .contact-unified .contact-directory a:first-child{grid-column:1/-1}
  .contact-unified .contact-directory a{font-size:12px;min-width:0}
 }
+
+/* A deliberate, legible footer without duplicating the contact section. */
+.premium-footer.closing-footer{padding:0;background:var(--paper);border-top:1px solid var(--line)}
+.closing-footer .footer-main{display:grid;grid-template-columns:1.35fr 1fr auto;align-items:center;gap:50px;padding:40px 0 32px}
+.closing-footer .footer-wordmark{display:inline-flex;align-items:center;gap:10px;font-size:50px;letter-spacing:-3px;line-height:1;font-weight:800}
+.closing-footer .footer-wordmark img{display:block;width:36px;height:36px;border-radius:50%;object-fit:cover}
+.footer-identity p{font-size:13px;line-height:1.6;color:var(--muted);margin:14px 0 0}
+.footer-navigation{display:flex;flex-direction:column;align-items:start;gap:2px}
+.footer-navigation a{font-size:13px;line-height:1.5;min-height:32px;display:inline-flex;align-items:center}
+.footer-social{display:flex;flex-direction:column;gap:10px;padding:17px 20px;border:1px solid #1113;border-radius:5px;min-width:205px}
+.footer-social-label{font-size:8px;letter-spacing:1px;color:var(--muted)}
+.footer-social>span:last-child{display:flex;justify-content:space-between;gap:30px;font-size:16px;letter-spacing:-.4px}
+.footer-social>span:last-child>span{color:var(--blue)}
+.footer-meta{display:flex;align-items:center;justify-content:space-between;gap:24px;border-top:1px solid var(--line);padding:16px 0 20px;font-size:11px;color:var(--muted)}
+.footer-meta small{font-size:11px}
+.footer-meta>a{min-height:32px;display:flex;align-items:center;gap:15px;color:var(--ink);font-size:12px}
+.closing-footer a:hover{color:var(--blue)}
+.closing-footer a:focus-visible{outline:2px solid var(--blue);outline-offset:5px}
+@media(max-width:650px){
+ .closing-footer .footer-main{grid-template-columns:1fr 1fr;gap:25px 20px;padding:28px 0 25px;align-items:start}
+ .closing-footer .footer-wordmark{font-size:42px;gap:8px;letter-spacing:-2.5px}
+ .closing-footer .footer-wordmark img{width:30px;height:30px}
+ .footer-identity p{font-size:12px;margin-top:12px}
+ .footer-navigation{padding-top:0;gap:0}
+ .footer-navigation a{min-height:44px;font-size:12px}
+ .footer-social{grid-column:1/-1;min-width:0;flex-direction:row;justify-content:space-between;align-items:center;padding:15px 16px;gap:15px}
+ .footer-social>span:last-child{font-size:15px;gap:17px}
+ .footer-meta{flex-wrap:wrap;gap:8px 15px;padding:14px 0 16px;font-size:10px}
+ .footer-meta small{font-size:10px}
+ .footer-meta>span{order:3;width:100%;font-size:10px}
+ .footer-meta>a{margin-left:auto;min-height:44px;font-size:11px}
+}
