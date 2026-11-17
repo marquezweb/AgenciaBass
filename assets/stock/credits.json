@@ -52,5 +52,68 @@
     "license_url": "https://unsplash.com/license",
     "purpose": "Generic illustrative service photography, not BASS staff or client work",
     "bytes": 104390
+  },
+  {
+    "file": "assets/stock/cover-studio.webp",
+    "source": "https://unsplash.com/photos/fybrevHYvWc",
+    "author": "Clay Banks",
+    "license": "Unsplash License",
+    "license_url": "https://unsplash.com/license",
+    "purpose": "Generic illustrative photograph, not BASS staff or client work",
+    "bytes": 666812
+  },
+  {
+    "file": "assets/stock/advertising.webp",
+    "source": "https://unsplash.com/photos/yqaskj8lQBE",
+    "author": "1981 Digital",
+    "license": "Unsplash License",
+    "license_url": "https://unsplash.com/license",
+    "purpose": "Generic illustrative photograph, not BASS staff or client work",
+    "bytes": 34664
+  },
+  {
+    "file": "assets/stock/influencers.webp",
+    "source": "https://unsplash.com/photos/hM2SJPCVWXY",
+    "author": "Detail .co",
+    "license": "Unsplash License",
+    "license_url": "https://unsplash.com/license",
+    "purpose": "Generic illustrative photograph, not BASS staff or client work",
+    "bytes": 78834
+  },
+  {
+    "file": "assets/stock/cover-violet.jpg",
+    "source": "https://unsplash.com/photos/kqLeFAf9npk",
+    "author": "Erfan Ro",
+    "license": "Unsplash License",
+    "license_url": "https://unsplash.com/license",
+    "purpose": "Generic illustrative photograph, not BASS staff or client work",
+    "bytes": 255909
+  },
+  {
+    "file": "assets/stock/event-staff.jpg",
+    "source": "https://www.pexels.com/photo/7648051/",
+    "author": "RDNE Stock project",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "purpose": "Generic illustrative photograph, not BASS staff or client work",
+    "bytes": 121626
+  },
+  {
+    "file": "assets/stock/influencer-recording.jpg",
+    "source": "https://www.pexels.com/photo/6870421/",
+    "author": "Gustavo Fring",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "purpose": "Generic illustrative photograph, not BASS staff or client work",
+    "bytes": 125283
+  },
+  {
+    "file": "assets/stock/flyer-street.jpg",
+    "source": "https://www.pexels.com/photo/38752819/",
+    "author": "Mico Medel",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "purpose": "Generic illustrative photograph, not BASS staff or client work",
+    "bytes": 104811
   }
 ]

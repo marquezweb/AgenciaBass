@@ -110,6 +110,61 @@
       "file": "assets/stock/credits.json",
       "kind": "attribution",
       "publisher": "Unsplash contributors"
+    },
+    {
+      "file": "assets/stock/cover-studio.webp",
+      "bytes": 666812,
+      "original_url": "https://unsplash.com/photos/fybrevHYvWc",
+      "publisher": "Clay Banks",
+      "kind": "illustrative-stock",
+      "license": "Unsplash License"
+    },
+    {
+      "file": "assets/stock/advertising.webp",
+      "bytes": 34664,
+      "original_url": "https://unsplash.com/photos/yqaskj8lQBE",
+      "publisher": "1981 Digital",
+      "kind": "illustrative-stock",
+      "license": "Unsplash License"
+    },
+    {
+      "file": "assets/stock/influencers.webp",
+      "bytes": 78834,
+      "original_url": "https://unsplash.com/photos/hM2SJPCVWXY",
+      "publisher": "Detail .co",
+      "kind": "illustrative-stock",
+      "license": "Unsplash License"
+    },
+    {
+      "file": "assets/stock/cover-violet.jpg",
+      "bytes": 255909,
+      "original_url": "https://unsplash.com/photos/kqLeFAf9npk",
+      "publisher": "Erfan Ro",
+      "kind": "illustrative-stock",
+      "license": "Unsplash License"
+    },
+    {
+      "file": "assets/stock/event-staff.jpg",
+      "bytes": 121626,
+      "original_url": "https://www.pexels.com/photo/7648051/",
+      "publisher": "RDNE Stock project",
+      "kind": "illustrative-stock",
+      "license": "Pexels License"
+    },
+    {
+      "file": "assets/stock/influencer-recording.jpg",
+      "bytes": 125283,
+      "original_url": "https://www.pexels.com/photo/6870421/",
+      "publisher": "Gustavo Fring",
+      "kind": "illustrative-stock",
+      "license": "Pexels License"
+    },
+    {
+      "file": "assets/stock/flyer-street.jpg",
+      "publisher": "Mico Medel",
+      "original_url": "https://www.pexels.com/photo/38752819/",
+      "kind": "illustrative-stock",
+      "license": "Pexels License"
     }
   ]
 }
