@@ -992,7 +992,11 @@ body{overflow-x:clip}
 .sober-style *,.sober-style *::before,.sober-style *::after{animation:none!important;transition-property:color,background-color,border-color,opacity!important;transition-duration:.18s!important;transition-delay:0s!important}
 .sober-style .premium-hero::before,.sober-style .hero-letter-light,.sober-style .hero-signal-ripples{display:none!important}
 .sober-style .hero-stage>.frequency-orbit{opacity:.22}
-.sober-style .marquee>div{transform:none!important}
+.sober-style .marquee>div{animation:bass-ticker 80s linear infinite!important;will-change:transform}
+.sober-style .marquee:hover>div{animation-play-state:running}
+.sober-style .marquee>div>span{flex-shrink:0}
+@keyframes bass-ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.sober-style .marquee>div{animation:none!important;will-change:auto;width:100%;white-space:normal}.sober-style .marquee>div>span{font-size:16px;letter-spacing:-.5px;text-align:center;padding-inline:14px}.sober-style .marquee>div>span+span{display:none}}
 .sober-style .hero-loud,.sober-style .frequency-word,.sober-style .channel-name,.sober-style .channel-name>span,.sober-style .proof-value,.sober-style .step-glyph,.sober-style .process-score article,.sober-style .process-score article h3,.sober-style .process-score article p,.sober-style .process-score article>span,.sober-style .contact-title>span,.sober-style .footer-brand>span,.sober-style .brand>span{translate:0 0!important;scale:1!important;rotate:0deg!important;transform:none!important;text-shadow:none!important;filter:none!important}
 .sober-style .process-score article:hover{background:transparent;color:var(--ink);box-shadow:none;border-color:var(--line)}
 .sober-style .process-score article:nth-child(2):hover{background:var(--blue);color:var(--paper)}
