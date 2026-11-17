@@ -312,10 +312,9 @@ matchMedia('(min-width: 651px)').addEventListener('change', () => setMenu(false)
 // Static campaign formats and contact routing; no accounts or stored submissions.
 (() => {
  if(!document.getElementById('profile-contact-link'))return;
- document.querySelectorAll('[data-profile-target]').forEach(link=>link.addEventListener('click',()=>{document.querySelector('[name="bass-profile"][value="'+link.dataset.profileTarget+'"]').click();}));
  const routes={
   brand:{href:'https://wa.me/5493516227593?text='+encodeURIComponent('Hola BASS, quiero crear contenido para mi marca.'),label:'Consultar por WhatsApp',hint:'Contanos sobre tu marca y el contenido que necesitás.'},
-  creator:{href:'mailto:agenciabass1@gmail.com?subject='+encodeURIComponent('Perfil de creador de contenido / BASS'),label:'Presentar mi perfil por correo',hint:'Compartí tus redes y ejemplos de trabajos en el correo.'},
+  creator:{href:'https://wa.me/5493516227593?text='+encodeURIComponent('Hola BASS, soy creador de contenido y me gustaría presentar mi perfil.\n\nNombre:\nRedes sociales:\nTipo de contenido:\nEjemplos de trabajos:'),label:'Presentar mi perfil por WhatsApp',hint:'Compartí tus redes y ejemplos de trabajos por WhatsApp.'},
   both:{href:'https://wa.me/5493516227593?text='+encodeURIComponent('Hola BASS, creo contenido y tengo una marca. Quiero conversar sobre una propuesta.'),label:'Conversar por WhatsApp',hint:'Contanos sobre tu perfil como creador y sobre tu marca.'}
  };
  document.querySelectorAll('[name="bass-profile"]').forEach(input=>input.addEventListener('change',()=>{
