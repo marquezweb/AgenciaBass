@@ -85,6 +85,9 @@ dialog.addEventListener('close', () => {
 
 const serviceFormats = {
   branding: ['Aa.', 'Forma. Color. Identidad.', 'DISEÑO & BRANDING'],
+  difusion: ['↗', 'Tu mensaje, en circulación.', 'DIFUSIÓN / FLYERS / GOOGLE'],
+  influencers: ['↗', 'Personas que conectan marcas.', 'INFLUENCERS'],
+  ads: ['↗', 'Publicidad para impulsar tu marca.', 'META / GOOGLE ADS'],
   redes: ['↗', 'Una dirección para tu marca.', 'ESTRATEGIA & REDES'],
   ugc: ['REC', 'Personas. Historias. Contenido.', 'CREADORAS / REELS / UGC'],
   filmmaker: ['REC.', 'Una mirada profesional para tu marca.', 'CONTENIDO PROFESIONAL / FILMMAKER'],
@@ -158,7 +161,6 @@ matchMedia('(min-width: 651px)').addEventListener('change', () => setMenu(false)
   let selected = 0;
   let switchTimer;
   let revealTimer;
-  let signalPulse = 0;
   function settle() {
     clearTimeout(revealTimer);
     stage.classList.remove('is-tuning');
@@ -182,7 +184,6 @@ matchMedia('(min-width: 651px)').addEventListener('change', () => setMenu(false)
     }
     stage.dataset.channel = String(index);
     stage.classList.add('is-tuning');
-    signalPulse = 1;
     switchTimer = setTimeout(() => {
       heroPreview.pause();
       heroPreview.poster = channel.poster;
@@ -210,69 +211,7 @@ matchMedia('(min-width: 651px)').addEventListener('change', () => setMenu(false)
     });
   });
 
-  // Bespoke signal field: concentric paths gently deform toward the pointer.
-  // Bound to the hero, paused offscreen/in background, capped at 30 fps.
-  const svg = stage.querySelector('.frequency-orbit');
-  const group = svg.querySelector('g');
-  const paths = [];
-  const ns = 'http://www.w3.org/2000/svg';
-  for (let i = 0; i < 22; i++) {
-    const path = document.createElementNS(ns,'path');
-    path.setAttribute('vector-effect','non-scaling-stroke');
-    paths.push(path);
-  }
-  group.replaceChildren(...paths);
-  let pointer = {x:.5,y:.5,inside:false};
-  let smoothed = {x:.5,y:.5};
-  let frame = 0;
-  let lastFrame = 0;
-  let visible = false;
-  const fine = matchMedia('(hover: hover) and (pointer: fine)');
-  function draw(time, still = false) {
-    smoothed.x += (pointer.x-smoothed.x)*.075;
-    smoothed.y += (pointer.y-smoothed.y)*.075;
-    const phase = still ? 0 : time * .00035;
-    const amp = still ? 5 : 7 + (pointer.inside ? 15 : 0) + signalPulse * 28;
-    const cx = 300 + (smoothed.x-.5)*45;
-    const cy = 300 + (smoothed.y-.5)*45;
-    paths.forEach((path, index) => {
-      const radius = 24 + index * 13;
-      let d = '';
-      for(let step = 0; step <= 100; step++) {
-        const angle = step/100*Math.PI*2;
-        const displacement = Math.sin(angle*3+phase+index*.13+selected*.8)*amp + Math.sin(angle*6-phase*.7+index*.2)*amp*.3;
-        const r = radius + displacement * (radius/300);
-        const x = cx + Math.cos(angle)*r;
-        const y = cy + Math.sin(angle)*r;
-        d += `${step ? 'L':'M'}${x.toFixed(1)} ${y.toFixed(1)}`;
-      }
-      path.setAttribute('d',d+'Z');
-      path.setAttribute('opacity',String(.28 + index/30));
-    });
-    signalPulse *= .95;
-  }
-  function tick(time) {
-    frame = 0;
-    if (!visible || document.hidden || reducedMotion.matches || document.querySelector('dialog[open]')) return;
-    if (time-lastFrame > 32) { draw(time); lastFrame=time; }
-    frame=requestAnimationFrame(tick);
-  }
-  function syncSignal() {
-    cancelAnimationFrame(frame); frame=0;
-    if(reducedMotion.matches) draw(0,true);
-    else if(visible && !document.hidden && !document.querySelector('dialog[open]')) frame=requestAnimationFrame(tick);
-  }
-  hero.addEventListener('pointermove', event => {
-    if (!fine.matches || reducedMotion.matches) return;
-    const bounds=hero.getBoundingClientRect();
-    pointer={x:(event.clientX-bounds.left)/bounds.width,y:(event.clientY-bounds.top)/bounds.height,inside:true};
-  },{passive:true});
-  hero.addEventListener('pointerleave',()=>{pointer={x:.5,y:.5,inside:false};});
-  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;syncSignal();},{threshold:.05}).observe(hero);
-  document.addEventListener('visibilitychange',syncSignal);
-  document.querySelectorAll('dialog').forEach(viewer=>viewer.addEventListener('toggle',syncSignal));
-  reducedMotion.addEventListener('change',syncSignal);
-  draw(0,true);
+
 })();
 
 // Explore the actual BASS work in context; original publications stay one click away.
@@ -368,4 +307,21 @@ matchMedia('(min-width: 651px)').addEventListener('change', () => setMenu(false)
   touchStart=null;
  },{passive:true});
  viewer.addEventListener('close',()=>{if(!dialog.open)document.body.classList.remove('player-open');syncPreviews();trigger?.focus({preventScroll:true});});
+})();
+
+// Static campaign formats and contact routing; no accounts or stored submissions.
+(() => {
+ if(!document.getElementById('profile-contact-link'))return;
+ document.querySelectorAll('[data-profile-target]').forEach(link=>link.addEventListener('click',()=>{document.querySelector('[name="bass-profile"][value="'+link.dataset.profileTarget+'"]').click();}));
+ const routes={
+  brand:{href:'https://wa.me/5493516227593?text='+encodeURIComponent('Hola BASS, quiero crear contenido para mi marca.'),label:'Consultar por WhatsApp',hint:'Contanos sobre tu marca y el contenido que necesitás.'},
+  creator:{href:'mailto:agenciabass1@gmail.com?subject='+encodeURIComponent('Perfil de creador de contenido / BASS'),label:'Presentar mi perfil por correo',hint:'Compartí tus redes y ejemplos de trabajos en el correo.'},
+  both:{href:'https://wa.me/5493516227593?text='+encodeURIComponent('Hola BASS, creo contenido y tengo una marca. Quiero conversar sobre una propuesta.'),label:'Conversar por WhatsApp',hint:'Contanos sobre tu perfil como creador y sobre tu marca.'}
+ };
+ document.querySelectorAll('[name="bass-profile"]').forEach(input=>input.addEventListener('change',()=>{
+  const route=routes[input.value];const link=document.getElementById('profile-contact-link');
+  link.href=route.href;link.replaceChildren(document.createTextNode(route.label+' '));
+  const arrow=document.createElement('span');arrow.textContent='↗';arrow.setAttribute('aria-hidden','true');link.append(arrow);
+  document.getElementById('profile-contact-hint').textContent=route.hint;
+ }));
 })();
