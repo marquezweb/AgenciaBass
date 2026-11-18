@@ -115,5 +115,26 @@
     "license_url": "https://www.pexels.com/license/",
     "purpose": "Generic illustrative photograph, not BASS staff or client work",
     "bytes": 104811
+  },
+  {
+    "file": "assets/stock/digital-diffusion.jpg",
+    "source": "https://www.pexels.com/photo/36712982/",
+    "author": "Vitaly Gariev",
+    "license": "Pexels License",
+    "purpose": "Illustrative photograph, not BASS staff or clients"
+  },
+  {
+    "file": "assets/stock/promotional-hostess.jpg",
+    "source": "https://www.pexels.com/photo/19301037/",
+    "author": "Marcus Queiroga Silva",
+    "license": "Pexels License",
+    "purpose": "Illustrative photograph, not BASS staff or clients"
+  },
+  {
+    "file": "assets/stock/street-posters.jpg",
+    "source": "https://www.pexels.com/photo/colorful-urban-wall-with-eclectic-street-art-34384393/",
+    "author": "Mayara Caroline Mombelli",
+    "license": "Pexels License",
+    "purpose": "Illustrative street posters, not BASS client work"
   }
 ]

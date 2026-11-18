@@ -165,6 +165,32 @@
       "original_url": "https://www.pexels.com/photo/38752819/",
       "kind": "illustrative-stock",
       "license": "Pexels License"
+    },
+    {
+      "file": "assets/stock/digital-diffusion.jpg",
+      "original_url": "https://www.pexels.com/photo/36712982/",
+      "publisher": "Vitaly Gariev",
+      "kind": "illustrative-stock",
+      "license": "Pexels License"
+    },
+    {
+      "file": "assets/stock/promotional-hostess.jpg",
+      "original_url": "https://www.pexels.com/photo/19301037/",
+      "publisher": "Marcus Queiroga Silva",
+      "kind": "illustrative-stock",
+      "license": "Pexels License"
+    },
+    {
+      "file": "assets/bass-social-v2.jpg",
+      "kind": "brand-artwork",
+      "publisher": "BASS"
+    },
+    {
+      "file": "assets/stock/street-posters.jpg",
+      "original_url": "https://www.pexels.com/photo/colorful-urban-wall-with-eclectic-street-art-34384393/",
+      "publisher": "Mayara Caroline Mombelli",
+      "kind": "illustrative-stock",
+      "license": "Pexels License"
     }
   ]
 }

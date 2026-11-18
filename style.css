@@ -1482,3 +1482,19 @@ body{overflow-x:clip}
  .refined-partnership .partnership-subhead h3{font-size:28px}.refined-partnership .format-card{padding:25px 0;gap:14px}.refined-partnership .format-card h4{font-size:23px}.refined-partnership .partnership-how-grid>article{padding:26px 23px}.refined-partnership .partnership-how h4{font-size:21px}.refined-partnership .partnership-modalities{grid-template-columns:1fr;padding-top:26px}.refined-partnership .partnership-modalities h3{font-size:29px}.refined-partnership .engagement-options summary{font-size:20px}
  .closing-footer .footer-main{padding-block:30px}
 }
+
+/* Client content adjustments, November 2026. */
+#proceso{scroll-margin-top:110px}
+#servicio-difusion .service-photo img{object-position:center 50%}
+#servicio-staff .service-photo img{object-position:center 32%}
+.refined-results{padding-top:65px}
+.modalities-section{padding-block:54px 45px}
+.modalities-section .partnership-modalities{margin-top:28px;padding:0;border:0;display:grid;grid-template-columns:1fr 1.45fr;gap:8%;align-items:start}
+.modalities-section h2{font-size:clamp(32px,3.4vw,48px);line-height:1.08;letter-spacing:-.055em;font-weight:500;max-width:420px}
+.modalities-section .engagement-options{margin:0;border-top:1px solid var(--line)}
+.modalities-section .engagement-options details{padding-inline:20px;border-bottom:1px solid var(--line)}
+.modalities-section .engagement-options details[open]{background:#e8e5db}
+.modalities-section .engagement-options summary{padding-block:20px;font-size:23px}
+.modalities-section .engagement-options p{font-size:14px;line-height:1.8;padding-bottom:22px}
+.instagram-handle{display:flex;align-items:center;gap:12px}.instagram-icon{width:24px;height:24px;flex:none}
+@media(max-width:650px){#proceso{scroll-margin-top:85px}.refined-results{padding-top:40px}.modalities-section{padding-block:35px}.modalities-section .section-kicker{font-size:7px}.modalities-section .section-kicker>span:last-child{font-size:6px}.modalities-section .partnership-modalities{grid-template-columns:1fr;gap:24px;margin-top:25px}.modalities-section h2{font-size:32px;max-width:310px}.modalities-section .engagement-options summary{font-size:21px}.modalities-section .engagement-options details{padding-inline:15px}.modalities-section .engagement-options p{font-size:13px}.instagram-icon{width:22px;height:22px}}
